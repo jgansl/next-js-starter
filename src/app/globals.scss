@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --body--font-size-1560: 1.0256410256410258vw;
+    --body--font-size-1440: 1.1111111111111112vw;
+    --padding-inline: max(1rem, 7vw);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 100%; //16px
+  }
+  
+  html,
+  body,
+  body > [data-overlay-container] {
+    overflow-x: hidden;
+    height: 100%;
+    @apply flex flex-col grow;
+  }
+
+  body {
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    font-size: var(--body--font-size-1440);
+  }
+
+  main.site-main {
+    @apply flex flex-col grow;
+  }
+
+  .container-full, /* //TWND */
+  .container-7xl,
+  .container-9xl {
+    // px-[var(--padding-inline)]
+    @apply 
+      mx-auto 
+    ;
+  }
+
+  /* //iteration */
+  .container-7xl {
+    @apply 
+      max-w-7xl;
+    font-size: min(1em, 19.692307692307693px); //1560
+    font-size: min(1em, 21.333333333333332px); //1440
+  }
+  .container-9xl {
+    @apply 
+    max-w-9xl;
+    font-size: min(1em, 25.230769230769237px); //1560
+    font-size: min(1em, 27.333333333333336px); //1440
+  }
+
+  p {
+    @apply text-gray-500 dark:text-gray-400; //TODO flowbite
+    line-height: 1.5;
+    margin-bottom: 1.5em;
+  }
+  p,
+  li,
+  a:not([class]) {
+    font-size: 1rem;
+  }
+
+  h1, h2, h3, h4, h5 {// margin: 3rem 0 1.38rem;
+    // @apply text-gray-900 dark:text-white;
+    font-weight: 700;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  // Perfect Fifth
+  h1 { font-size: 7.594em; margin: 0.39504872267579666em 0 0.18172241243086645em; }
+  h2 { font-size: 5.063em; margin: 0.5925340707090658em 0 0.27256567252617026em; }
+  h3 { font-size: 3.375em; margin: 0.8888888888888888em 0 0.40888888888888886em; }
+  h4 { font-size: 2.250em; margin: 1.3333333333333333em 0 0.6133333333333333em; }
+  h5 { font-size: 1.500em; margin: 2em 0 0.9199999999999999em; }
+
+  // @media (min-width: 40rem) {
+  @media (min-width: 48rem) {
+    // Perfect Fourth
+    h1 { font-size: 4.209em; margin: 0.7127583749109052em 0 0.3278688524590164em; }
+    h2 { font-size: 3.157em; margin: 0.9502692429521697em 0 0.43712385175799806em; }
+    h3 { font-size: 2.369em; margin: 1.2663571127057829em 0 0.58252427184466em; }
+    h4 { font-size: 1.777em; margin: 1.6882386043894204em 0 0.7765897580191333em; }
+    h5 { font-size: 1.333em; margin: 2.2505626406601653em 0 1.0352588147036759em; }
+  }
+  
+  @media (min-width: 80rem) {
+    p,
+    li,
+    a:not([class]) {
+      font-size: 1.25rem;
+    }
+  }
+
+  //@media (min-width: 120rem) {
+  //@media (min-width: 105rem) {
+  //@media (min-width: 90rem) {
+  @media (min-width: 96rem) {
+    //Major Third
+    h1 { font-size: 3.052em; margin: 0.9829619921363041em 0 0.45216251638269983em; }
+    h2 { font-size: 2.441em; margin: 1.2290045063498567em 0 0.5653420729209341em; }
+    h3 { font-size: 1.953em; margin: 1.5360983102918586em 0 0.706605222734255em; }
+    h4 { font-size: 1.563em; margin: 1.9193857965451055em 0 0.8829174664107485em; }
+    h5 { font-size: 1.25em; margin: 2.4em 0 1.1039999999999999em; }
+  }
+  @media (min-width: 120rem) {
+    p,
+    li,
+    a:not([class]) {
+      font-size: 1.25rem;
+    }
+  }
+  @media (min-width: 150rem) {
+    p,
+    li,
+    a:not([class]) {
+      font-size: 1.25rem;
+    }
+  }
+
+  h1 { margin-top: 0; }
+}
+
+.site-footer,
+.site-header {
+  p,
+  li,
+  a:not([class]) {
+    font-size: 1rem;
+  }
+}
+.site-footer,
+.site-header,
+.site-main {
+  padding-inline: var(--padding-inline);
+}
+
+.hero, //bg-white dark:bg-gray-900
+.features, //bg-white dark:bg-gray-900
+.site-footer,
+.site-header {
+  // @apply bg-white border-gray-200 dark:bg-gray-800;
+}
+
+.site-footer {
+  // @apply p-4 sm:p-6;
+  @apply py-4 sm:py-6;
+}
+
+.site-header {
+  // @apply px-4 lg:px-6 py-2.5;
+  @apply py-2.5;
+}
+
+.site-main {}
+
+.hero {
+  h1, h2, h3, h4, h5 {
+    @apply mt-0;
+  }
+
+  p {
+    text-wrap: balance;
+  }
+}
